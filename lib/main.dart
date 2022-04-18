@@ -26,7 +26,34 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+                onPressed: () {
+                  final snackBar = SnackBar(
+                      content: const Text('Snackar in action'),
+                    duration: Duration(seconds: 3),
+                    backgroundColor: Colors.blue,
+                    action: SnackBarAction(
+                      label: 'click me',
+                      textColor: Colors.white,
+                      onPressed: () {
+
+                      },
+                    ),
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);                },
+                child: const Text("Launch"),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
-
